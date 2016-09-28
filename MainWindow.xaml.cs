@@ -18,8 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-using System.Windows;
-using System.Windows.Media;
 using Microsoft.Kinect;
 using System.Media;
 using System.Windows.Threading;
@@ -302,46 +300,29 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 Debug.WriteLine("MainX:" + mainX);
                 Debug.WriteLine("PelotaX:" + (double)pelota.GetValue(Canvas.LeftProperty));
 
-                private bool checarColision(mainX, mainY, pelota)
-                {   //Coordenada del centro pelota
-                    double dX1 = (double)pelota.GetValue(Canvas.LeftProperty) + (pelota.Width / 2);
-                    double dY1 = (double)pelota.GetValue(Canvas.TopProperty) + (pelota.Height / 2);
-                    //Coordenada del centro Joint
-                    //mainX
-                    //mainY
+                //Funcion checar colision
+                //Coordenada del centro pelota
+                double dX1 = (double)pelota.GetValue(Canvas.LeftProperty) + (pelota.Width / 2);
+                double dY1 = (double)pelota.GetValue(Canvas.TopProperty) + (pelota.Height / 2);
+                //Coordenada del centro Joint
+                double dX2 = mainX;
+                double dY2 = mainY;
 
-                }
-
-
-                private bool checarColision(Objeto ob1, Objeto ob2)
+                //Medida del radio de cada objeto
+                double dRadio1 = pelota.Width / 2;
+                //Distancia entre los dos objetos
+                double dDistancia =
+                    Math.Sqrt(Math.Pow(dX2 - dX1, 2) + Math.Pow(dY2 - dY1, 2));
+                //Verificar si hay colisión
+                if (dDistancia < dRadio1)
                 {
-                    //Coordenada del centro de cada objeto
-                    double dX1 = ob1.dPosX + (ob1.dAncho / 2);
-                    double dY1 = ob1.dPosY + (ob1.dAlto / 2);
-                    double dX2 = ob2.dPosX + (ob2.dAncho / 2);
-                    double dY2 = ob2.dPosY + (ob2.dAlto / 2);
-                    //Medida del radio de cada objeto
-                    double dRadio1 = ob1.dAncho / 2;
-                    double dRadio2 = ob2.dAncho / 2;
-                    //Distancia entre los dos objetos
-                    double dDistancia =
-                         Math.Sqrt(Math.Pow(dX2 - dX1, 2) + Math.Pow(dY2 - dY1, 2));
-                    //Verificar si hay colisión
-                    if (dDistancia > dRadio1 + dRadio2)
-                        return false;
-                    return true;
-                }   
-
-
-                if (mainX == (double)pelota.GetValue(Canvas.LeftProperty) || mainY == (double)pelota.GetValue(Canvas.TopProperty))   ///condition
-                {  //prueba
                     Debug.WriteLine("Salu2");
                     this.acachar.Play();
                 }
+
+
             }
         }
-
-
 
         /// <summary>
         /// Draws a skeleton's bones and joints
@@ -378,7 +359,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             this.DrawBone(skeleton, drawingContext, JointType.HipRight, JointType.KneeRight);
             this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
             this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
- 
+
             // Render Joints
             foreach (Joint joint in skeleton.Joints)
             {
@@ -386,11 +367,11 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
                 if (joint.TrackingState == JointTrackingState.Tracked)
                 {
-                    drawBrush = this.trackedJointBrush;                    
+                    drawBrush = this.trackedJointBrush;
                 }
                 else if (joint.TrackingState == JointTrackingState.Inferred)
                 {
-                    drawBrush = this.inferredJointBrush;                    
+                    drawBrush = this.inferredJointBrush;
                 }
 
                 if (drawBrush != null)
