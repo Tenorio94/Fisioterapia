@@ -26,3 +26,4 @@ C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\S
 C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.g.resources
 C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\Microsoft.Samples.Kinect.SkeletonBasics.Properties.Resources.resources
 C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF_Content.g.cs
