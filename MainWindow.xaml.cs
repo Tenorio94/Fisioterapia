@@ -18,8 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-using System.Windows;
-using System.Windows.Media;
 using Microsoft.Kinect;
 using System.Media;
 using System.Windows.Threading;
@@ -49,12 +47,12 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         /// <summary>
         /// Width of output drawing
         /// </summary>
-        private const float RenderWidth = 640.0f;
+        private const float RenderWidth = 1366.0f;
 
         /// <summary>
         /// Height of our output drawing
         /// </summary>
-        private const float RenderHeight = 480.0f;
+        private const float RenderHeight = 758.0f;
 
         /// <summary>
         /// Thickness of drawn joint lines
@@ -111,6 +109,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         /// </summary>
         private DrawingImage imageSource;
 
+        private Double dScore = 0;
 
 
         /// <summary>
@@ -164,6 +163,72 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             }
         }
 
+        public void StartTimer(object o, RoutedEventArgs sender)
+        {
+            System.Windows.Threading.DispatcherTimer myDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            myDispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1, 0); // 100 Milliseconds 
+            myDispatcherTimer.Tick += new EventHandler(Each_Tick);
+            myDispatcherTimer.Start();
+        }
+
+        // A variable to count with.
+        int seconds = 1;
+        int minutes = 0;
+        int hours = 0;
+
+        String sSeconds, sMinutes, sHours;
+
+        // Raised every 100 miliseconds while the DispatcherTimer is active.
+        public void Each_Tick(object o, EventArgs sender)
+        {
+            seconds++;
+            if (seconds == 60)
+            {
+                seconds = 0;
+                minutes++;
+            }
+
+            if (minutes == 60)
+            {
+                minutes = 0;
+                hours++;
+            }
+
+            if (hours < 10)
+            {
+                sHours = "0" + hours;
+            }
+
+            if (minutes < 10)
+            {
+                sMinutes = "0" + minutes;
+            }
+
+            if (seconds < 10)
+            {
+                sSeconds = "0" + seconds;
+            }
+
+            if (hours >= 10)
+            {
+                sHours = "" + hours;
+            }
+
+            if (minutes >= 10)
+            {
+                sMinutes = "" + minutes;
+            }
+
+            if (seconds >= 10)
+            {
+                sSeconds = "" + seconds;
+            }
+
+            myTextBlock.Text = "Tiempo Transcurrido: " + sHours + ":" + sMinutes + ":" + sSeconds;
+            Debug.WriteLine("Hola.");
+        }
+
+
         /// <summary>
         /// Execute startup tasks
         /// </summary>
@@ -216,6 +281,17 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             {
                 this.statusBarText.Text = Properties.Resources.NoKinectReady;
             }
+
+            ImageBrush myBrush = new ImageBrush();
+            myBrush.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "C:\\Users\\Teorio94\\Documents\\SkeletonBasics-WPF\\Images\\ZenBlack.jpg"));
+            canvas1.Background = myBrush;
+
+            checkBoxSeatedMode.Visibility = Visibility.Hidden;
+            statusBar.Visibility = Visibility.Hidden;
+            Header.Visibility = Visibility.Hidden;
+
+            statusBarText.Text = "Puntaje: " + dScore;
+
         }
 
         /// <summary>
@@ -317,14 +393,14 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                     Math.Sqrt(Math.Pow(dX2 - dX1, 2) + Math.Pow(dY2 - dY1, 2));
                 //Verificar si hay colisión
                 if (dDistancia < dRadio1)
-                {   Debug.WriteLine("Salu2");
+                {
+                    Debug.WriteLine("Salu2");
                     this.acachar.Play();
                 }
 
 
             }
         }
-
         /// <summary>
         /// Draws a skeleton's bones and joints
         /// </summary>
@@ -360,7 +436,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             this.DrawBone(skeleton, drawingContext, JointType.HipRight, JointType.KneeRight);
             this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
             this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
- 
+
             // Render Joints
             foreach (Joint joint in skeleton.Joints)
             {
@@ -368,11 +444,11 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
                 if (joint.TrackingState == JointTrackingState.Tracked)
                 {
-                    drawBrush = this.trackedJointBrush;                    
+                    drawBrush = this.trackedJointBrush;
                 }
                 else if (joint.TrackingState == JointTrackingState.Inferred)
                 {
-                    drawBrush = this.inferredJointBrush;                    
+                    drawBrush = this.inferredJointBrush;
                 }
 
                 if (drawBrush != null)

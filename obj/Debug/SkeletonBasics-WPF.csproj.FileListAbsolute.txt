@@ -12,17 +12,18 @@ C:\Users\Luis\Desktop\Semana_i\Ejemplo\SkeletonBasics-WPF\bin\Debug\Microsoft.Ki
 C:\Users\Luis\Desktop\Semana_i\Ejemplo\SkeletonBasics-WPF\obj\Debug\SkeletonBasics-WPF.exe
 C:\Users\Luis\Desktop\Semana_i\Ejemplo\SkeletonBasics-WPF\obj\Debug\SkeletonBasics-WPF.pdb
 C:\Users\Luis\Desktop\Semana_i\Ejemplo\SkeletonBasics-WPF\obj\Debug\SkeletonBasics-WPF.csprojResolveAssemblyReference.cache
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\SkeletonBasics-WPF.exe
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\SkeletonBasics-WPF.pdb
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\bin\Debug\SkeletonBasics-WPF.exe
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\bin\Debug\SkeletonBasics-WPF.pdb
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\bin\Debug\Microsoft.Kinect.dll
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\bin\Debug\Microsoft.Kinect.xml
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\SkeletonBasics-WPF.csprojResolveAssemblyReference.cache
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\MainWindow.baml
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\MainWindow.g.cs
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\App.g.cs
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\SkeletonBasics-WPF_MarkupCompile.cache
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\SkeletonBasics-WPF.g.resources
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\Microsoft.Samples.Kinect.SkeletonBasics.Properties.Resources.resources
-C:\Users\Luis\Documents\00_Semanai\Fisioterapia\obj\Debug\SkeletonBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.exe
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.pdb
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\bin\Debug\SkeletonBasics-WPF.exe
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\bin\Debug\SkeletonBasics-WPF.pdb
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\bin\Debug\Microsoft.Kinect.dll
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\bin\Debug\Microsoft.Kinect.xml
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\MainWindow.baml
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\MainWindow.g.cs
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\App.g.cs
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF_MarkupCompile.cache
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.g.resources
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\Microsoft.Samples.Kinect.SkeletonBasics.Properties.Resources.resources
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Teorio94\Documents\Visual Studio 2015\Projects\Fisioterapia\obj\Debug\SkeletonBasics-WPF_Content.g.cs
