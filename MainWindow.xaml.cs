@@ -401,7 +401,6 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
             }
         }
-
         /// <summary>
         /// Draws a skeleton's bones and joints
         /// </summary>
