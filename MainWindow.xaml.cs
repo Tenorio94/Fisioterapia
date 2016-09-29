@@ -39,11 +39,13 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
     public partial class MainWindow : Window
     {
         private readonly SoundPlayer acachar = new SoundPlayer(SkeletonBasics.Properties.Resources.NoteA);
+        DispatcherTimer timer;
 
         double mainX;
         double mainY;
         double pelotaY = 0;
         double pelotaX = 0;
+        bool hit = true;
 
         Point coordenadaJoint = new Point();
 
@@ -120,10 +122,15 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         public MainWindow()
         {
             InitializeComponent();
-
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 2);
 
 
         }
+
+
+
+
 
         /// <summary>
         /// Draws indicators to show which edges are clipping skeleton data
@@ -282,7 +289,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 this.drawingGroup.ClipGeometry = new RectangleGeometry(new Rect(0.0, 0.0, RenderWidth, RenderHeight));
             }
         }
-
+        //mio
         /// <summary>
         /// Obtiene las coordenadas del Joint seleccionado
         /// </summary>
@@ -317,35 +324,28 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 double dDistancia =
                     Math.Sqrt(Math.Pow(dX2 - dX1, 2) + Math.Pow(dY2 - dY1, 2));
                 //Verificar si hay colisión
-                if (dDistancia < dRadio1)
-                {   Debug.WriteLine("Salu2");
+                if (dDistancia < dRadio1 && hit==true)
+                {   hit = false;
+                    timer.Tick += new EventHandler(timer_Tick);
+                    timer.IsEnabled = true;
+                    Debug.WriteLine("Salu2");
                     this.acachar.Play();
                 }
 
             }
         }
 
-        //Pen PenLinea = new Pen;
-
-        //DrawLine(Pen PenLinea, Point 300, Point 400);
-
         /// <summary>
-        /// Draws a skeleton's bones and joints
+        /// Evitar que el joint suene 2 veces
         /// </summary>
         /// <param name="skeleton">skeleton to draw</param>
         /// <param name="drawingContext">drawing context to draw to</param>
-        //private void DrawLineTarget()
-        //{   
-        //    Point InicioP1 = new Point(100, 100);
-        //    Point InicioP2 = new Point(200, 200);
-        //    Pen pen = new Pen(Brushes.Blue, 12);
+        void timer_Tick(object sender, EventArgs e)
+        { 
+            hit = true;
+        }
 
-        //    System.Windows.Media.DrawingContext.DrawLine(pen, InicioP1, InicioP2);
 
-        //    //Pen pen = new Pen(Color.FromArgb(255, 0, 0, 0));
-        //    //Graphics.DrawLine(pen, 20, 10, 300, 100);
-        //}
-        
 
 
         /// <summary>
