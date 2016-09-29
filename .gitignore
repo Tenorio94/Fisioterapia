@@ -1,3 +1,5 @@
 .phpintel
 .DS_STORE
+.vs
 /obj
+/bin
