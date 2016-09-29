@@ -77,5 +77,24 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics.Properties {
                 return ResourceManager.GetStream("NoteA", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Zen_Audio {
+            get {
+                return ResourceManager.GetStream("Zen_Audio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZenBlack {
+            get {
+                object obj = ResourceManager.GetObject("ZenBlack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
     public partial class MainWindow : Window
     {
         private readonly SoundPlayer acachar = new SoundPlayer(SkeletonBasics.Properties.Resources.NoteA);
+        private readonly SoundPlayer backgroundMusic = new SoundPlayer(SkeletonBasics.Properties.Resources.Zen_Audio);
         DispatcherTimer timer;
 
         double mainX;
@@ -51,12 +52,12 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         /// <summary>
         /// Width of output drawing
         /// </summary>
-        private const float RenderWidth = 1366.0f;
+        private const float RenderWidth = 640.0f;
 
         /// <summary>
         /// Height of our output drawing
         /// </summary>
-        private const float RenderHeight = 758.0f;
+        private const float RenderHeight = 480.0f;
 
         /// <summary>
         /// Thickness of drawn joint lines
@@ -71,7 +72,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         /// <summary>
         /// Thickness of clip edge rectangles
         /// </summary>
-        private const double ClipBoundsThickness = 10;
+        private const double ClipBoundsThickness = 5; //grueso raya roja edges
 
         /// <summary>
         /// Brush used to draw skeleton center point
@@ -292,8 +293,10 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             }
 
             ImageBrush myBrush = new ImageBrush();
-            myBrush.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "C:\\Users\\Teorio94\\Documents\\SkeletonBasics-WPF\\Images\\ZenBlack.jpg"));
+            myBrush.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "C:\\Users\\Luis\\Documents\\00_Semanai\\Fisioterapia\\Images\\ZenBlack.jpg"));
             canvas1.Background = myBrush;
+
+            backgroundMusic.Play();
 
             checkBoxSeatedMode.Visibility = Visibility.Hidden;
             statusBar.Visibility = Visibility.Hidden;
@@ -405,6 +408,8 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 if (dDistancia < dRadio1 && hit == true) // con timer2 if (dDistancia < dRadio1 && hit==true && timer2 < maxtime)
                 {
                     hit = false;
+                    dScore++;
+                    statusBarText.Text = "Puntaje: " + dScore;
                     //puntos++;
                     //puntaje.Content = puntos.ToString();
                     timer.Tick += new EventHandler(timer_Tick); //esto es para que no suene varias veces cuando el punto esta muy cerca
@@ -461,13 +466,13 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
             // Left Leg
             this.DrawBone(skeleton, drawingContext, JointType.HipLeft, JointType.KneeLeft);
-            this.DrawBone(skeleton, drawingContext, JointType.KneeLeft, JointType.AnkleLeft);
-            this.DrawBone(skeleton, drawingContext, JointType.AnkleLeft, JointType.FootLeft);
+            //this.DrawBone(skeleton, drawingContext, JointType.KneeLeft, JointType.AnkleLeft);
+            //this.DrawBone(skeleton, drawingContext, JointType.AnkleLeft, JointType.FootLeft);
 
             // Right Leg
             this.DrawBone(skeleton, drawingContext, JointType.HipRight, JointType.KneeRight);
-            this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
-            this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
+            //this.DrawBone(skeleton, drawingContext, JointType.KneeRight, JointType.AnkleRight);
+            //this.DrawBone(skeleton, drawingContext, JointType.AnkleRight, JointType.FootRight);
 
             // Render Joints
             foreach (Joint joint in skeleton.Joints)

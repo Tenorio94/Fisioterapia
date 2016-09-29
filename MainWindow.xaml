@@ -1,7 +1,8 @@
 ﻿<Window x:Class="Microsoft.Samples.Kinect.SkeletonBasics.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Skeleton Basics" Height="1920" Width="1200" Loaded="WindowLoaded" Closing="WindowClosing">
+        Title="Skeleton Basics" Height="640" Width="480
+        " Loaded="WindowLoaded" Closing="WindowClosing">
 
     <Window.Resources>
         <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e"/>
@@ -58,30 +59,17 @@
             <TextBlock DockPanel.Dock="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontFamily="Segoe UI" FontSize="18">Skeleton Basics</TextBlock>
             <Image Grid.Column="1" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="0 0 0 5"/>
         </DockPanel>
-        <Canvas x:Name="canvas1" Grid.Row="1" HorizontalAlignment="Center" Width="1366" Height="758" RenderTransformOrigin="0.385,0.381">
-            <MediaElement x:Name="mediaElemento" Margin="507,331,0,0">
-                <MediaElement.Triggers>
-                    <EventTrigger RoutedEvent="MediaElement.Loaded">
-                        <EventTrigger.Actions>
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <MediaTimeline Source="C:\Users\Teorio94\Google Drive\ITESM-ITC\9. Semestre\Semana i\Zen_Audio.wav" Storyboard.TargetName="mediaElemento" RepeatBehavior="Forever"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger.Actions>
-                    </EventTrigger>
-                </MediaElement.Triggers>
-            </MediaElement>
-            <Ellipse x:Name="Puntero" Width="25" Height="25" Canvas.Left="308" Canvas.Top="10" Fill="Violet" ></Ellipse>
-            <Line X1="0" Y1="0" X2="300" Y2="0" Stroke="Violet" StrokeThickness="4" Canvas.Left="262" Canvas.Top="141" />
-            <Line X1="0" Y1="-250" X2="10" Y2="10" Stroke="Violet" StrokeThickness="4" Canvas.Left="262" Canvas.Top="395" />
-                <Image Name="Image" Width="1366" Height="758"/>
-                <Image x:Name="pelota" Canvas.Left="459" Canvas.Top="117" Height="46" Width="46" Source="magicBall.png" RenderTransformOrigin="0.986,2.598"/>
-            <Grid x:Name="LayoutRoot" Background="Transparent" Grid.Row="1" Canvas.Left="867" Canvas.Top="640" >
-                <TextBlock FontSize="28" Loaded="StartTimer" x:Name="myTextBlock" Foreground="WhiteSmoke" Margin="0,-1,-108.6,10.8" HorizontalAlignment="Right" Width="388">Hola</TextBlock>
+        <Canvas x:Name="canvas1" Grid.Row="1" HorizontalAlignment="Center" Width="640" Height="480" RenderTransformOrigin="0.385,0.381" Margin="0,45,0,44">
+            <Ellipse x:Name="Puntero" Width="25" Height="25" Canvas.Left="308" Canvas.Top="10" Fill="Violet" RenderTransformOrigin="0.48,0.48" ></Ellipse>
+            <Line X1="0" Y1="0" X2="250" Y2="0" Stroke="Violet" StrokeThickness="4" Canvas.Left="361" Canvas.Top="343" />
+            <Line X1="0" Y1="-250" X2="10" Y2="10" Stroke="Violet" StrokeThickness="4" Canvas.Left="361" Canvas.Top="587" />
+            <Image Name="Image" Width="640" Height="480"/>
+            <Image x:Name="pelota" Canvas.Left="589" Canvas.Top="319" Height="46" Width="46" Source="magicBall.png" RenderTransformOrigin="0.986,2.598"/>
+            <Grid x:Name="LayoutRoot" Background="Transparent" Grid.Row="1" Canvas.Left="308" Canvas.Top="389" >
+                <TextBlock FontSize="22" Loaded="StartTimer" x:Name="myTextBlock" Foreground="WhiteSmoke" Margin="0,-1,-108.6,10.8" HorizontalAlignment="Right" Width="388">Hola</TextBlock>
             </Grid>
-            <Grid x:Name="LayoutText" Background="Transparent" Grid.Row="1" Canvas.Left="10" Canvas.Top="630" >
-                <TextBlock Name="statusBarText" Margin="-1,10,-0.2,-11.2" FontSize="28" Foreground="WhiteSmoke">Click 'Seated' to change skeletal pipeline type!</TextBlock>
+            <Grid x:Name="LayoutText" Background="Transparent" Grid.Row="1" Canvas.Left="42" Canvas.Top="378" >
+                <TextBlock Name="statusBarText" Margin="-1,10,-0.2,-11.2" FontSize="22" Foreground="WhiteSmoke">Click 'Seated' to change skeletal pipeline type!</TextBlock>
             </Grid>
         </Canvas>
         <CheckBox Grid.Row="2" Style="{StaticResource SquareCheckBox}" Content="Seated Mode" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 10 10" Name="checkBoxSeatedMode" Checked="CheckBoxSeatedModeChanged" Unchecked="CheckBoxSeatedModeChanged"/>
