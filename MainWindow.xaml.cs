@@ -46,6 +46,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         double pelotaY = 0;
         double pelotaX = 0;
         bool hit = true;
+        int puntos = 0;
 
         Point coordenadaJoint = new Point();
 
@@ -123,7 +124,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         {
             InitializeComponent();
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Interval = new TimeSpan(0, 0, 5);
 
 
         }
@@ -324,9 +325,11 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 double dDistancia =
                     Math.Sqrt(Math.Pow(dX2 - dX1, 2) + Math.Pow(dY2 - dY1, 2));
                 //Verificar si hay colisión
-                if (dDistancia < dRadio1 && hit==true)
+                if (dDistancia < dRadio1 && hit==true) // con timer2 if (dDistancia < dRadio1 && hit==true && timer2 < maxtime)
                 {   hit = false;
-                    timer.Tick += new EventHandler(timer_Tick);
+                    //puntos++;
+                    //puntaje.Content = puntos.ToString();
+                    timer.Tick += new EventHandler(timer_Tick); //esto es para que no suene varias veces cuando el punto esta muy cerca
                     timer.IsEnabled = true;
                     Debug.WriteLine("Salu2");
                     this.acachar.Play();
