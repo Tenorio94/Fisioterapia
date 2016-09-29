@@ -59,7 +59,7 @@
             <Image Grid.Column="1" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="0 0 0 5"/>
         </DockPanel>
         <Canvas Name="MainCanvas" Grid.Row="1" HorizontalAlignment="Center" Width="640" Height="480" RenderTransformOrigin="0.385,0.381">
-            <!--<MediaElement x:Name="mediaElemento" Margin="507,331,0,0">
+            <MediaElement x:Name="mediaElemento" Margin="507,331,0,0">
                 <MediaElement.Triggers>
                     <EventTrigger RoutedEvent="MediaElement.Loaded">
                         <EventTrigger.Actions>
@@ -71,10 +71,12 @@
                         </EventTrigger.Actions>
                     </EventTrigger>
                 </MediaElement.Triggers>
-            </MediaElement>-->
+            </MediaElement>
             <Ellipse x:Name="Puntero" Width="25" Height="25" Canvas.Left="308" Canvas.Top="10" Fill="Violet" ></Ellipse>
+            <Line X1="0" Y1="0" X2="300" Y2="0" Stroke="Violet" StrokeThickness="4" Canvas.Left="262" Canvas.Top="141" />
+            <Line X1="0" Y1="-250" X2="10" Y2="10" Stroke="Violet" StrokeThickness="4" Canvas.Left="262" Canvas.Top="395" />
             <Image Name="Image" Width="640" Height="480"/>
-            <Image x:Name="pelota" Canvas.Left="459" Canvas.Top="117" Height="46" Width="46" Source="bola.png" RenderTransformOrigin="0.986,2.598"/>
+            <Image Name="pelota" Canvas.Left="470" Canvas.Top="116" Height="46" Width="46" Source="bola.png" RenderTransformOrigin="0.986,2.598"/>
         </Canvas>
         <CheckBox Grid.Row="2" Style="{StaticResource SquareCheckBox}" Content="Seated Mode" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 10 10" Name="checkBoxSeatedMode" Checked="CheckBoxSeatedModeChanged" Unchecked="CheckBoxSeatedModeChanged"/>
         <StatusBar Grid.Row="3" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">

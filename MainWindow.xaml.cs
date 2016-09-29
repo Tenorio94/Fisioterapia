@@ -24,6 +24,7 @@ using Microsoft.Kinect;
 using System.Media;
 using System.Windows.Threading;
 using System.Diagnostics;
+//using System.Drawing;
 
 namespace Microsoft.Samples.Kinect.SkeletonBasics
 {
@@ -321,9 +322,31 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                     this.acachar.Play();
                 }
 
-
             }
         }
+
+        //Pen PenLinea = new Pen;
+
+        //DrawLine(Pen PenLinea, Point 300, Point 400);
+
+        /// <summary>
+        /// Draws a skeleton's bones and joints
+        /// </summary>
+        /// <param name="skeleton">skeleton to draw</param>
+        /// <param name="drawingContext">drawing context to draw to</param>
+        //private void DrawLineTarget()
+        //{   
+        //    Point InicioP1 = new Point(100, 100);
+        //    Point InicioP2 = new Point(200, 200);
+        //    Pen pen = new Pen(Brushes.Blue, 12);
+
+        //    System.Windows.Media.DrawingContext.DrawLine(pen, InicioP1, InicioP2);
+
+        //    //Pen pen = new Pen(Color.FromArgb(255, 0, 0, 0));
+        //    //Graphics.DrawLine(pen, 20, 10, 300, 100);
+        //}
+        
+
 
         /// <summary>
         /// Draws a skeleton's bones and joints
